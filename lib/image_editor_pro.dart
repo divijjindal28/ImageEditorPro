@@ -434,8 +434,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 }
 
 class Signat extends StatefulWidget {
-  Signat(this._basicControlers);
-  SignatureController _basicControlers;
+
   @override
   _SignatState createState() => _SignatState();
 }
@@ -444,21 +443,23 @@ class _SignatState extends State<Signat> {
   @override
   void initState() {
     super.initState();
-    widget._basicControlers.addListener(() => print("Value changed"));
+    _controllers.forEach((element) {element.addListener(()=>print("hi"));});
   }
 
   @override
   Widget build(BuildContext context) {
     return //SIGNATURE CANVAS
         //SIGNATURE CANVAS
-        ListView(
-      children: <Widget>[
-        Signature(
-            controller: widget._basicControlers,
-            height: height.toDouble(),
-            width: width.toDouble(),
-            backgroundColor: Colors.transparent),
-      ],
+        ListView.builder(
+          itemCount: _controllers.length,
+          itemBuilder: (_,index){
+            return Signature(
+                controller: _controllers[index],
+                height: height.toDouble(),
+                width: width.toDouble(),
+                backgroundColor: Colors.transparent);
+          },
+
     );
   }
 }
