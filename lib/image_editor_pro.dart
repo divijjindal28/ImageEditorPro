@@ -26,7 +26,7 @@ List fontsize = [];
 var howmuchwidgetis = 0;
 List multiwidget = [];
 Color currentcolors = Colors.white;
-var opicity = 0.0;
+
 var thickness = 0.0;
 SignatureController _controller =
     SignatureController(penStrokeWidth: thickness, penColor: Colors.green);
@@ -325,6 +325,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 pickerAreaHeightPercent: 0.8,
                               ),
                               Slider(
+
                                 min: 0,
                                 max: 100,
                                 onChangeStart: (value){
@@ -511,6 +512,7 @@ class _SlidersState extends State<Sliders> {
 }
 
 class ColorPiskersSlider extends StatefulWidget {
+  var opicity = 0.1;
   @override
   _ColorPiskersSliderState createState() => _ColorPiskersSliderState();
 }
@@ -547,7 +549,7 @@ class _ColorPiskersSliderState extends State<ColorPiskersSlider> {
           SizedBox(height: 20),
           new Text("Slider Opicity"),
           SizedBox(height: 10),
-          Slider(value: 0.1, min: 0.0, max: 1.0, onChanged: (v) {})
+          Slider(value: widget.opicity, min: 0.0, max: 1.0, onChanged: (v) {widget.opicity = v;})
         ],
       ),
     );
