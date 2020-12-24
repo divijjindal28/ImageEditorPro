@@ -31,6 +31,33 @@ var thickness = 0.0;
 SignatureController _controller =
     SignatureController(penStrokeWidth: thickness, penColor: Colors.green);
 
+
+class BrushThickness extends StatefulWidget {
+  var thickness;
+  BrushThickness(this.thickness);
+  @override
+  _BrushThicknessState createState() => _BrushThicknessState();
+}
+
+class _BrushThicknessState extends State<BrushThickness> {
+  @override
+  Widget build(BuildContext context) {
+    return Slider(
+
+      min: 0,
+      max: 100,
+
+      value: thickness,
+      onChanged: (value) {
+        setState(() {
+          thickness = value;
+        });
+      },
+    );
+  }
+}
+
+
 class ImageEditorPro extends StatefulWidget {
   final Color appBarColor;
   final Color bottomBarColor;
@@ -324,27 +351,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 showLabel: true,
                                 pickerAreaHeightPercent: 0.8,
                               ),
-                              Slider(
-
-                                min: 0,
-                                max: 100,
-                                onChangeStart: (value){
-                                  setState(() {
-                                    thickness = value;
-                                  });
-                                },
-                                onChangeEnd: (value){
-                                  setState(() {
-                                    thickness = value;
-                                  });
-                                },
-                                value: thickness,
-                                onChanged: (value) {
-                                  setState(() {
-                                    thickness = value;
-                                  });
-                                },
-                              ),
+                              BrushThickness(thickness)
 
                             ],
                           ),
