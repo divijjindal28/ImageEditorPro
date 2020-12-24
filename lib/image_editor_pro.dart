@@ -387,7 +387,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     BottomBarContainer(
                       icons: FontAwesomeIcons.eraser,
                       ontap: () {
-                        _controllers.forEach((element) {print(element.penColor.toString()); });
+                        _controllers.forEach((element) {print("element_color_eraser"+element.penColor.toString()); });
                         // _controller.clear();
                         // type.clear();
                         // fontsize.clear();
@@ -454,7 +454,7 @@ class _SignatState extends State<Signat> {
         ListView.builder(
           itemCount: _controllers.length,
           itemBuilder: (_,index){
-            print("hi"+_controllers[index].penColor.toString());
+            print("signature"+_controllers[index].penColor.toString() + _controllers.length.toString());
             return Signature(
                 controller: _controllers[index],
                 height: height.toDouble(),
