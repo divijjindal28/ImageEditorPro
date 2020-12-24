@@ -250,7 +250,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             onPanEnd: (DragEndDetails details) {
                               _points.add(null);
                             },
-                            child: Signat()),
+                            child: SignatList()),
                       ),
                       Stack(
                         children: multiwidget.asMap().entries.map((f) {
@@ -387,13 +387,12 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     BottomBarContainer(
                       icons: FontAwesomeIcons.eraser,
                       ontap: () {
-                        _controllers.forEach((element) {print("element_color_eraser"+element.penColor.toString()); });
-                        // _controller.clear();
-                        // type.clear();
-                        // fontsize.clear();
-                        // offsets.clear();
-                        // multiwidget.clear();
-                        // howmuchwidgetis = 0;
+                        _controller.clear();
+                        type.clear();
+                        fontsize.clear();
+                        offsets.clear();
+                        multiwidget.clear();
+                        howmuchwidgetis = 0;
                       },
                       title: 'Eraser',
                     ),
@@ -434,8 +433,37 @@ class _ImageEditorProState extends State<ImageEditorPro> {
   }
 }
 
-class Signat extends StatefulWidget {
+class SignatList extends StatefulWidget {
 
+  @override
+  _SignatListState createState() => _SignatListState();
+}
+
+class _SignatListState extends State<SignatList> {
+  @override
+  void initState() {
+    super.initState();
+
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return //SIGNATURE CANVAS
+      //SIGNATURE CANVAS
+      ListView.builder(
+        itemCount:  _controllers.length ,
+        itemBuilder: (_,index){
+          return Signat(_controllers[index]);
+        },
+
+      );
+  }
+}
+
+class Signat extends StatefulWidget {
+  SignatureController _basicControlers;
+  Signat(this._basicControlers);
   @override
   _SignatState createState() => _SignatState();
 }
@@ -444,25 +472,22 @@ class _SignatState extends State<Signat> {
   @override
   void initState() {
     super.initState();
-    //_controllers.forEach((element) {element.addListener(()=>print("hi"));});
+
+    widget._basicControlers.addListener(()=>print('hi'));
   }
 
   @override
   Widget build(BuildContext context) {
     return //SIGNATURE CANVAS
         //SIGNATURE CANVAS
-        ListView.builder(
-          itemCount: _controllers.length,
-          itemBuilder: (_,index){
-            _controllers[index].addListener(()=>print("hi"+index.toString()));
-            print("signature"+_controllers[index].penColor.toString() + _controllers.length.toString());
-            return Signature(
-                controller: _controllers[index],
-                height: height.toDouble(),
-                width: width.toDouble(),
-                backgroundColor: Colors.transparent);
-          },
-
+        ListView(
+      children: <Widget>[
+        Signature(
+            controller: widget._basicControlers,
+            height: height.toDouble(),
+            width: width.toDouble(),
+            backgroundColor: Colors.transparent),
+      ],
     );
   }
 }
