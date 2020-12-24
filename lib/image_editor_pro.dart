@@ -22,7 +22,7 @@ TextEditingController widthcontroler = TextEditingController();
 var width = 300;
 var height = 300;
 
-List<SignatureController> _controllers;
+List<SignatureController> _controllers =[];
 SignatureController _controller =
 SignatureController(penStrokeWidth: thickness, penColor: Colors.green);
 
