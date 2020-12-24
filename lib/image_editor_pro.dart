@@ -387,12 +387,13 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     BottomBarContainer(
                       icons: FontAwesomeIcons.eraser,
                       ontap: () {
-                        _controller.clear();
-                        type.clear();
-                        fontsize.clear();
-                        offsets.clear();
-                        multiwidget.clear();
-                        howmuchwidgetis = 0;
+                        _controllers.forEach((element) {print(element.penColor.toString()); });
+                        // _controller.clear();
+                        // type.clear();
+                        // fontsize.clear();
+                        // offsets.clear();
+                        // multiwidget.clear();
+                        // howmuchwidgetis = 0;
                       },
                       title: 'Eraser',
                     ),
