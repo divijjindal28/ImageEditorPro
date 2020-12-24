@@ -327,6 +327,16 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               Slider(
                                 min: 0,
                                 max: 100,
+                                onChangeStart: (value){
+                                  setState(() {
+                                    thickness = value;
+                                  });
+                                },
+                                onChangeEnd: (value){
+                                  setState(() {
+                                    thickness = value;
+                                  });
+                                },
                                 value: thickness,
                                 onChanged: (value) {
                                   setState(() {
