@@ -26,6 +26,8 @@ List fontsize = [];
 var howmuchwidgetis = 0;
 List multiwidget = [];
 Color currentcolors = Colors.white;
+Color pickerColor = Color(0xff443a49);
+Color currentColor = Color(0xff443a49);
 
 var thickness = 0.0;
 SignatureController _controller =
@@ -45,12 +47,14 @@ class _BrushThicknessState extends State<BrushThickness> {
     return Slider(
 
       min: 0,
-      max: 100,
+      max: 10,
 
       value: thickness,
       onChanged: (value) {
         setState(() {
           thickness = value;
+          _controller =
+              SignatureController(penStrokeWidth: thickness, penColor: currentColor, points: _controller.points);
         });
       },
     );
@@ -72,8 +76,7 @@ var slider = 0.0;
 
 class _ImageEditorProState extends State<ImageEditorPro> {
   // create some values
-  Color pickerColor = Color(0xff443a49);
-  Color currentColor = Color(0xff443a49);
+
 
 // ValueChanged<Color> callback
   void changeColor(Color color) {
