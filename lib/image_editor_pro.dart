@@ -449,7 +449,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                     setState(() {
                                       height = decodedImage.height;
                                       width = decodedImage.width;
-                                      _image = image;
+                                      widget.image = image;
                                     });
                                     setState(() => _controller.clear());
                                     Navigator.pop(context);
@@ -478,7 +478,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                   setState(() {
                                     height = decodedImage.height;
                                     width = decodedImage.width;
-                                    _image = image;
+                                    widget.image = image;
                                   });
                                   setState(() => _controller.clear());
                                   Navigator.pop(context);
