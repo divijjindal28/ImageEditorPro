@@ -54,7 +54,7 @@ class _BrushThicknessState extends State<BrushThickness> {
         setState(() {
           thickness = value;
           _controller =
-              SignatureController(penStrokeWidth: thickness, penColor: currentColor);
+              SignatureController(penStrokeWidth: thickness, penColor: currentColor, points: _controller.points);
         });
       },
     );
@@ -83,7 +83,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
     setState(() => pickerColor = color);
     var points = _controller.points;
     _controller =
-        SignatureController(penStrokeWidth: thickness, penColor: color);
+        SignatureController(penStrokeWidth: thickness, penColor: color, points: points);
   }
 
   List<Offset> offsets = [];
