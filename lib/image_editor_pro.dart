@@ -22,9 +22,9 @@ TextEditingController widthcontroler = TextEditingController();
 var width = 300;
 var height = 300;
 
-List<SignatureController> _controllers =[];
+List<SignatureController> _controllers = [];
 SignatureController _controller =
-SignatureController(penStrokeWidth: thickness, penColor: Colors.green);
+    SignatureController(penStrokeWidth: thickness, penColor: Colors.green);
 
 List fontsize = [];
 var howmuchwidgetis = 0;
@@ -34,8 +34,6 @@ Color pickerColor = Color(0xff443a49);
 Color currentColor = Color(0xff443a49);
 
 var thickness = 0.0;
-
-
 
 class BrushThickness extends StatefulWidget {
   var thickness;
@@ -48,29 +46,23 @@ class _BrushThicknessState extends State<BrushThickness> {
   @override
   Widget build(BuildContext context) {
     return Slider(
-
       min: 0,
       max: 10,
-
       value: thickness,
       onChanged: (value) {
         setState(() {
           thickness = value;
-          SignatureController _recentController =
-          SignatureController(penStrokeWidth: thickness, penColor: currentColor);
-          _controllers.add(_recentController);
         });
       },
     );
   }
 }
 
-
 class ImageEditorPro extends StatefulWidget {
   final Color appBarColor;
   final Color bottomBarColor;
   File image;
-  ImageEditorPro({this.appBarColor, this.bottomBarColor,this.image});
+  ImageEditorPro({this.appBarColor, this.bottomBarColor, this.image});
 
   @override
   _ImageEditorProState createState() => _ImageEditorProState();
@@ -81,14 +73,10 @@ var slider = 0.0;
 class _ImageEditorProState extends State<ImageEditorPro> {
   // create some values
 
-
 // ValueChanged<Color> callback
   void changeColor(Color color) {
     setState(() => pickerColor = color);
     var points = _controller.points;
-    SignatureController _recentController =
-        SignatureController(penStrokeWidth: thickness, penColor: color);
-    _controllers.add(_recentController);
   }
 
   List<Offset> offsets = [];
@@ -173,11 +161,11 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 TextField(
                                     controller: heightcontroler,
                                     keyboardType:
-                                    TextInputType.numberWithOptions(),
+                                        TextInputType.numberWithOptions(),
                                     decoration: InputDecoration(
                                         hintText: 'Height',
                                         contentPadding:
-                                        EdgeInsets.only(left: 10),
+                                            EdgeInsets.only(left: 10),
                                         border: OutlineInputBorder())),
                                 new SizedBox(
                                   height: 10,
@@ -189,11 +177,11 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 TextField(
                                     controller: widthcontroler,
                                     keyboardType:
-                                    TextInputType.numberWithOptions(),
+                                        TextInputType.numberWithOptions(),
                                     decoration: InputDecoration(
                                         hintText: 'Width',
                                         contentPadding:
-                                        EdgeInsets.only(left: 10),
+                                            EdgeInsets.only(left: 10),
                                         border: OutlineInputBorder())),
                               ],
                             ),
@@ -201,7 +189,6 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         );
                       });
                 }),
-
             new FlatButton(
                 child: new Text("Done"),
                 textColor: Colors.white,
@@ -210,7 +197,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                   _imageFile = null;
                   screenshotController
                       .capture(
-                      delay: Duration(milliseconds: 500), pixelRatio: 1.5)
+                          delay: Duration(milliseconds: 500), pixelRatio: 1.5)
                       .then((File image) async {
                     //print("Capture Done");
                     setState(() {
@@ -219,10 +206,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     final paths = await getExternalStorageDirectory();
                     image.copy(paths.path +
                         '/' +
-                        DateTime
-                            .now()
-                            .millisecondsSinceEpoch
-                            .toString() +
+                        DateTime.now().millisecondsSinceEpoch.toString() +
                         '.png');
                     Navigator.pop(context, image);
                   }).catchError((onError) {
@@ -246,11 +230,11 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     children: <Widget>[
                       widget.image != null
                           ? Image.file(
-                        widget.image,
-                        height: height.toDouble(),
-                        width: width.toDouble(),
-                        fit: BoxFit.cover,
-                      )
+                              widget.image,
+                              height: height.toDouble(),
+                              width: width.toDouble(),
+                              fit: BoxFit.cover,
+                            )
                           : Container(),
                       Container(
                         child: GestureDetector(
@@ -266,65 +250,62 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             onPanEnd: (DragEndDetails details) {
                               _points.add(null);
                             },
-                            child: Signat(_controllers.last )),
+                            child: Signat(_controllers.last)),
                       ),
                       Stack(
-                        children: multiwidget
-                            .asMap()
-                            .entries
-                            .map((f) {
+                        children: multiwidget.asMap().entries.map((f) {
                           return type[f.key] == 1
                               ? EmojiView(
-                            left: offsets[f.key].dx,
-                            top: offsets[f.key].dy,
-                            ontap: () {
-                              scaf.currentState
-                                  .showBottomSheet((context) {
-                                return Sliders(
-                                  size: f.key,
-                                  sizevalue: fontsize[f.key].toDouble(),
-                                );
-                              });
-                            },
-                            onpanupdate: (details) {
-                              setState(() {
-                                offsets[f.key] = Offset(
-                                    offsets[f.key].dx + details.delta.dx,
-                                    offsets[f.key].dy + details.delta.dy);
-                              });
-                            },
-                            value: f.value.toString(),
-                            fontsize: fontsize[f.key].toDouble(),
-                            align: TextAlign.center,
-                          )
+                                  left: offsets[f.key].dx,
+                                  top: offsets[f.key].dy,
+                                  ontap: () {
+                                    scaf.currentState
+                                        .showBottomSheet((context) {
+                                      return Sliders(
+                                        size: f.key,
+                                        sizevalue: fontsize[f.key].toDouble(),
+                                      );
+                                    });
+                                  },
+                                  onpanupdate: (details) {
+                                    setState(() {
+                                      offsets[f.key] = Offset(
+                                          offsets[f.key].dx + details.delta.dx,
+                                          offsets[f.key].dy + details.delta.dy);
+                                    });
+                                  },
+                                  value: f.value.toString(),
+                                  fontsize: fontsize[f.key].toDouble(),
+                                  align: TextAlign.center,
+                                )
                               : type[f.key] == 2
-                              ? TextView(
-                            left: offsets[f.key].dx,
-                            top: offsets[f.key].dy,
-                            ontap: () {
-                              scaf.currentState
-                                  .showBottomSheet((context) {
-                                return Sliders(
-                                  size: f.key,
-                                  sizevalue:
-                                  fontsize[f.key].toDouble(),
-                                );
-                              });
-                            },
-                            onpanupdate: (details) {
-                              setState(() {
-                                offsets[f.key] = Offset(
-                                    offsets[f.key].dx +
-                                        details.delta.dx,
-                                    offsets[f.key].dy +
-                                        details.delta.dy);
-                              });
-                            },
-                            value: f.value.toString(),
-                            fontsize: fontsize[f.key].toDouble(),
-                            align: TextAlign.center,
-                          )
-                              : new Container();
+                                  ? TextView(
+                                      left: offsets[f.key].dx,
+                                      top: offsets[f.key].dy,
+                                      ontap: () {
+                                        scaf.currentState
+                                            .showBottomSheet((context) {
+                                          return Sliders(
+                                            size: f.key,
+                                            sizevalue:
+                                                fontsize[f.key].toDouble(),
+                                          );
+                                        });
+                                      },
+                                      onpanupdate: (details) {
+                                        setState(() {
+                                          offsets[f.key] = Offset(
+                                              offsets[f.key].dx +
+                                                  details.delta.dx,
+                                              offsets[f.key].dy +
+                                                  details.delta.dy);
+                                        });
+                                      },
+                                      value: f.value.toString(),
+                                      fontsize: fontsize[f.key].toDouble(),
+                                      align: TextAlign.center,
+                                    )
+                                  : new Container();
                         }).toList(),
                       )
                     ],
@@ -335,118 +316,121 @@ class _ImageEditorProState extends State<ImageEditorPro> {
         bottomNavigationBar: openbottomsheet
             ? new Container()
             : Container(
-          decoration: BoxDecoration(
-              color: widget.bottomBarColor,
-              boxShadow: [BoxShadow(blurRadius: 10.9)]),
-          height: 70,
-          child: new ListView(
-            scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              BottomBarContainer(
-                colors: widget.bottomBarColor,
-                icons: FontAwesomeIcons.brush,
-                ontap: () {
-                  // raise the [showDialog] widget
-                  showDialog(
-                      context: context,
-                      child: AlertDialog(
-                        title: const Text('Pick your Brush!'),
-                        content: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              ColorPicker(
-                                pickerColor: pickerColor,
-                                onColorChanged: changeColor,
-                                showLabel: true,
-                                pickerAreaHeightPercent: 0.8,
+                decoration: BoxDecoration(
+                    color: widget.bottomBarColor,
+                    boxShadow: [BoxShadow(blurRadius: 10.9)]),
+                height: 70,
+                child: new ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    BottomBarContainer(
+                      colors: widget.bottomBarColor,
+                      icons: FontAwesomeIcons.brush,
+                      ontap: () {
+                        // raise the [showDialog] widget
+                        showDialog(
+                            context: context,
+                            child: AlertDialog(
+                              title: const Text('Pick your Brush!'),
+                              content: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    ColorPicker(
+                                      pickerColor: pickerColor,
+                                      onColorChanged: changeColor,
+                                      showLabel: true,
+                                      pickerAreaHeightPercent: 0.8,
+                                    ),
+                                    BrushThickness(thickness)
+                                  ],
+                                ),
                               ),
-                              BrushThickness(thickness)
-
-                            ],
-                          ),
-                        ),
-                        actions: <Widget>[
-                          FlatButton(
-                            child: const Text('Got it'),
-                            onPressed: () {
-                              setState(() => currentColor = pickerColor);
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ],
-                      ));
-                },
-                title: 'Brush',
-              ),
-              BottomBarContainer(
-                icons: Icons.text_fields,
-                ontap: () async {
-                  final value = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => TextEditor()));
-                  if (value
-                      .toString()
-                      .isEmpty) {
-                    print("true");
-                  } else {
-                    type.add(2);
-                    fontsize.add(20);
-                    offsets.add(Offset.zero);
-                    multiwidget.add(value);
-                    howmuchwidgetis++;
-                  }
-                },
-                title: 'Text',
-              ),
-              BottomBarContainer(
-                icons: FontAwesomeIcons.eraser,
-                ontap: () {
-                  _controller.clear();
-                  type.clear();
-                  fontsize.clear();
-                  offsets.clear();
-                  multiwidget.clear();
-                  howmuchwidgetis = 0;
-                },
-                title: 'Eraser',
-              ),
-              BottomBarContainer(
-                icons: Icons.photo,
-                ontap: () {
-                  showModalBottomSheet(
-                      context: context,
-                      builder: (context) {
-                        return ColorPiskersSlider();
-                      });
-                },
-                title: 'Filter',
-              ),
-              BottomBarContainer(
-                icons: FontAwesomeIcons.smile,
-                ontap: () {
-                  Future getemojis = showModalBottomSheet(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Emojies();
-                      });
-                  getemojis.then((value) {
-                    if (value != null) {
-                      type.add(1);
-                      fontsize.add(20);
-                      offsets.add(Offset.zero);
-                      multiwidget.add(value);
-                      howmuchwidgetis++;
-                    }
-                  });
-                },
-                title: 'Emoji',
-              ),
-            ],
-          ),
-        ));
+                              actions: <Widget>[
+                                FlatButton(
+                                  child: const Text('Got it'),
+                                  onPressed: () {
+                                    setState(() {
+                                      currentColor = pickerColor;
+                                      SignatureController _recentController =
+                                          SignatureController(
+                                              penStrokeWidth: thickness,
+                                              penColor: currentColor);
+                                      _controllers.add(_recentController);
+                                    });
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            ));
+                      },
+                      title: 'Brush',
+                    ),
+                    BottomBarContainer(
+                      icons: Icons.text_fields,
+                      ontap: () async {
+                        final value = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TextEditor()));
+                        if (value.toString().isEmpty) {
+                          print("true");
+                        } else {
+                          type.add(2);
+                          fontsize.add(20);
+                          offsets.add(Offset.zero);
+                          multiwidget.add(value);
+                          howmuchwidgetis++;
+                        }
+                      },
+                      title: 'Text',
+                    ),
+                    BottomBarContainer(
+                      icons: FontAwesomeIcons.eraser,
+                      ontap: () {
+                        _controller.clear();
+                        type.clear();
+                        fontsize.clear();
+                        offsets.clear();
+                        multiwidget.clear();
+                        howmuchwidgetis = 0;
+                      },
+                      title: 'Eraser',
+                    ),
+                    BottomBarContainer(
+                      icons: Icons.photo,
+                      ontap: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return ColorPiskersSlider();
+                            });
+                      },
+                      title: 'Filter',
+                    ),
+                    BottomBarContainer(
+                      icons: FontAwesomeIcons.smile,
+                      ontap: () {
+                        Future getemojis = showModalBottomSheet(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return Emojies();
+                            });
+                        getemojis.then((value) {
+                          if (value != null) {
+                            type.add(1);
+                            fontsize.add(20);
+                            offsets.add(Offset.zero);
+                            multiwidget.add(value);
+                            howmuchwidgetis++;
+                          }
+                        });
+                      },
+                      title: 'Emoji',
+                    ),
+                  ],
+                ),
+              ));
   }
-
 }
 
 class Signat extends StatefulWidget {
@@ -567,7 +551,13 @@ class _ColorPiskersSliderState extends State<ColorPiskersSlider> {
           SizedBox(height: 20),
           new Text("Slider Opicity"),
           SizedBox(height: 10),
-          Slider(value: widget.opicity, min: 0.0, max: 1.0, onChanged: (v) {widget.opicity = v;})
+          Slider(
+              value: widget.opicity,
+              min: 0.0,
+              max: 1.0,
+              onChanged: (v) {
+                widget.opicity = v;
+              })
         ],
       ),
     );
