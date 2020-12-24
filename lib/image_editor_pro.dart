@@ -33,7 +33,8 @@ SignatureController _controller =
 class ImageEditorPro extends StatefulWidget {
   final Color appBarColor;
   final Color bottomBarColor;
-  ImageEditorPro({this.appBarColor, this.bottomBarColor});
+  File image;
+  ImageEditorPro({this.appBarColor, this.bottomBarColor,this.image});
 
   @override
   _ImageEditorProState createState() => _ImageEditorProState();
@@ -65,7 +66,6 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 
   final GlobalKey container = GlobalKey();
   final GlobalKey globalKey = new GlobalKey();
-  File _image;
   ScreenshotController screenshotController = ScreenshotController();
   Timer timeprediction;
   void timers() {
@@ -213,9 +213,9 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                   key: globalKey,
                   child: Stack(
                     children: <Widget>[
-                      _image != null
+                      widget.image != null
                           ? Image.file(
-                              _image,
+                        widget.image,
                               height: height.toDouble(),
                               width: width.toDouble(),
                               fit: BoxFit.cover,
