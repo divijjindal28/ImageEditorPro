@@ -36,12 +36,6 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>_kAlphaTexture</find>
-      <find>_imageFile</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -84,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608790099751</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="initial commit">
+      <created>1608792470303</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608792470303</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,10 +119,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="560" y="247" width="1920" height="970" key="Vcs.Push.Dialog.v2" timestamp="1608790106319">
+    <state x="560" y="247" width="1920" height="970" key="Vcs.Push.Dialog.v2" timestamp="1608792476386">
       <screen x="0" y="25" width="1920" height="973" />
     </state>
     <state x="966" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1608789447920" />
-    <state x="560" y="247" key="Vcs.Push.Dialog.v2/0.25.1920.973@0.25.1920.973" timestamp="1608790106319" />
+    <state x="560" y="247" key="Vcs.Push.Dialog.v2/0.25.1920.973@0.25.1920.973" timestamp="1608792476386" />
   </component>
 </project>

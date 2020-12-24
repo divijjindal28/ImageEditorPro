@@ -27,8 +27,9 @@ var howmuchwidgetis = 0;
 List multiwidget = [];
 Color currentcolors = Colors.white;
 var opicity = 0.0;
+var thickness = 0.0;
 SignatureController _controller =
-    SignatureController(penStrokeWidth: 15, penColor: Colors.green);
+    SignatureController(penStrokeWidth: thickness, penColor: Colors.green);
 
 class ImageEditorPro extends StatefulWidget {
   final Color appBarColor;
@@ -52,7 +53,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
     setState(() => pickerColor = color);
     var points = _controller.points;
     _controller =
-        SignatureController(penStrokeWidth: 5, penColor: color, points: points);
+        SignatureController(penStrokeWidth: thickness, penColor: color, points: points);
   }
 
   List<Offset> offsets = [];
@@ -313,13 +314,28 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                   showDialog(
                       context: context,
                       child: AlertDialog(
-                        title: const Text('Pick a color!'),
+                        title: const Text('Pick your Brush!'),
                         content: SingleChildScrollView(
-                          child: ColorPicker(
-                            pickerColor: pickerColor,
-                            onColorChanged: changeColor,
-                            showLabel: true,
-                            pickerAreaHeightPercent: 0.8,
+                          child: Column(
+                            children: [
+                              ColorPicker(
+                                pickerColor: pickerColor,
+                                onColorChanged: changeColor,
+                                showLabel: true,
+                                pickerAreaHeightPercent: 0.8,
+                              ),
+                              Slider(
+                                min: 0,
+                                max: 100,
+                                value: thickness,
+                                onChanged: (value) {
+                                  setState(() {
+                                    thickness = value;
+                                  });
+                                },
+                              ),
+
+                            ],
                           ),
                         ),
                         actions: <Widget>[
