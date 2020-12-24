@@ -250,7 +250,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             onPanEnd: (DragEndDetails details) {
                               _points.add(null);
                             },
-                            child: Signat(_controllers.last)),
+                            child: Signat()),
                       ),
                       Stack(
                         children: multiwidget.asMap().entries.map((f) {
