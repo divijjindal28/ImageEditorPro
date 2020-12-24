@@ -128,6 +128,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
     offsets.clear();
     multiwidget.clear();
     howmuchwidgetis = 0;
+    _controllers.add(_controller);
     // TODO: implement initState
     super.initState();
   }
