@@ -444,7 +444,7 @@ class _SignatState extends State<Signat> {
   @override
   void initState() {
     super.initState();
-    _controllers.forEach((element) {element.addListener(()=>print("hi"));});
+    //_controllers.forEach((element) {element.addListener(()=>print("hi"));});
   }
 
   @override
@@ -454,6 +454,7 @@ class _SignatState extends State<Signat> {
         ListView.builder(
           itemCount: _controllers.length,
           itemBuilder: (_,index){
+            _controllers[index].addListener(()=>print("hi"));
             print("signature"+_controllers[index].penColor.toString() + _controllers.length.toString());
             return Signature(
                 controller: _controllers[index],
