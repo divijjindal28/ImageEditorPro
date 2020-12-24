@@ -451,12 +451,14 @@ class _SignatListState extends State<SignatList> {
   Widget build(BuildContext context) {
     return //SIGNATURE CANVAS
       //SIGNATURE CANVAS
-      ListView.builder(
-        itemCount:  _controllers.length ,
-        itemBuilder: (_,index){
-          return Signat(_controllers[index]);
-        },
+      SingleChildScrollView(
+        child: ListView.builder(
+          itemCount:  _controllers.length ,
+          itemBuilder: (_,index){
+            return Signat(_controllers[index]);
+          },
 
+        ),
       );
   }
 }
