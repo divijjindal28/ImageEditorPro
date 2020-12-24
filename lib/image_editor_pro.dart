@@ -28,7 +28,7 @@ List multiwidget = [];
 Color currentcolors = Colors.white;
 var opicity = 0.0;
 SignatureController _controller =
-    SignatureController(penStrokeWidth: 5, penColor: Colors.green);
+    SignatureController(penStrokeWidth: 15, penColor: Colors.green);
 
 class ImageEditorPro extends StatefulWidget {
   final Color appBarColor;
