@@ -459,7 +459,7 @@ class _SignatState extends State<Signat> {
   @override
   void initState() {
     super.initState();
-    _basicControlers.addListener(() => print("Value changed"));
+    widget._basicControlers.addListener(() => print("Value changed"));
   }
 
   @override
