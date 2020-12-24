@@ -453,6 +453,7 @@ class _SignatState extends State<Signat> {
         ListView.builder(
           itemCount: _controllers.length,
           itemBuilder: (_,index){
+            print("hi"+_controllers[index].penColor.toString());
             return Signature(
                 controller: _controllers[index],
                 height: height.toDouble(),
