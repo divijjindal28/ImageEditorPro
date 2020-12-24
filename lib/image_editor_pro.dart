@@ -22,6 +22,10 @@ TextEditingController widthcontroler = TextEditingController();
 var width = 300;
 var height = 300;
 
+List<SignatureController> _controllers;
+SignatureController _controller =
+SignatureController(penStrokeWidth: thickness, penColor: Colors.green);
+
 List fontsize = [];
 var howmuchwidgetis = 0;
 List multiwidget = [];
@@ -30,8 +34,7 @@ Color pickerColor = Color(0xff443a49);
 Color currentColor = Color(0xff443a49);
 
 var thickness = 0.0;
-SignatureController _controller =
-    SignatureController(penStrokeWidth: thickness, penColor: Colors.green);
+
 
 
 class BrushThickness extends StatefulWidget {
@@ -53,8 +56,9 @@ class _BrushThicknessState extends State<BrushThickness> {
       onChanged: (value) {
         setState(() {
           thickness = value;
-          _controller =
-              SignatureController(penStrokeWidth: thickness, penColor: currentColor, points: _controller.points);
+          SignatureController _recentController =
+          SignatureController(penStrokeWidth: thickness, penColor: currentColor);
+          _controllers.add(_recentController);
         });
       },
     );
@@ -82,8 +86,9 @@ class _ImageEditorProState extends State<ImageEditorPro> {
   void changeColor(Color color) {
     setState(() => pickerColor = color);
     var points = _controller.points;
-    _controller =
-        SignatureController(penStrokeWidth: thickness, penColor: color, points: points);
+    SignatureController _recentController =
+        SignatureController(penStrokeWidth: thickness, penColor: color);
+    _controllers.add(_recentController);
   }
 
   List<Offset> offsets = [];
@@ -260,7 +265,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             onPanEnd: (DragEndDetails details) {
                               _points.add(null);
                             },
-                            child: Signat()),
+                            child: Signat(_controllers.last )),
                       ),
                       Stack(
                         children: multiwidget
@@ -444,6 +449,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 }
 
 class Signat extends StatefulWidget {
+  Signat(this._basicControlers);
+  SignatureController _basicControlers;
   @override
   _SignatState createState() => _SignatState();
 }
@@ -452,7 +459,7 @@ class _SignatState extends State<Signat> {
   @override
   void initState() {
     super.initState();
-    _controller.addListener(() => print("Value changed"));
+    _basicControlers.addListener(() => print("Value changed"));
   }
 
   @override
@@ -462,7 +469,7 @@ class _SignatState extends State<Signat> {
         ListView(
       children: <Widget>[
         Signature(
-            controller: _controller,
+            controller: widget._basicControlers,
             height: height.toDouble(),
             width: width.toDouble(),
             backgroundColor: Colors.transparent),
