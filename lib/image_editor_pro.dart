@@ -68,6 +68,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
   final GlobalKey globalKey = new GlobalKey();
   ScreenshotController screenshotController = ScreenshotController();
   Timer timeprediction;
+
   void timers() {
     Timer.periodic(Duration(milliseconds: 10), (tim) {
       setState(() {});
@@ -135,11 +136,11 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 TextField(
                                     controller: heightcontroler,
                                     keyboardType:
-                                        TextInputType.numberWithOptions(),
+                                    TextInputType.numberWithOptions(),
                                     decoration: InputDecoration(
                                         hintText: 'Height',
                                         contentPadding:
-                                            EdgeInsets.only(left: 10),
+                                        EdgeInsets.only(left: 10),
                                         border: OutlineInputBorder())),
                                 new SizedBox(
                                   height: 10,
@@ -151,11 +152,11 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 TextField(
                                     controller: widthcontroler,
                                     keyboardType:
-                                        TextInputType.numberWithOptions(),
+                                    TextInputType.numberWithOptions(),
                                     decoration: InputDecoration(
                                         hintText: 'Width',
                                         contentPadding:
-                                            EdgeInsets.only(left: 10),
+                                        EdgeInsets.only(left: 10),
                                         border: OutlineInputBorder())),
                               ],
                             ),
@@ -163,17 +164,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         );
                       });
                 }),
-            new IconButton(
-                icon: Icon(Icons.clear),
-                onPressed: () {
-                  _controller.points.clear();
-                  setState(() {});
-                }),
-            new IconButton(
-                icon: Icon(Icons.camera),
-                onPressed: () {
-                  bottomsheets();
-                }),
+
             new FlatButton(
                 child: new Text("Done"),
                 textColor: Colors.white,
@@ -182,7 +173,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                   _imageFile = null;
                   screenshotController
                       .capture(
-                          delay: Duration(milliseconds: 500), pixelRatio: 1.5)
+                      delay: Duration(milliseconds: 500), pixelRatio: 1.5)
                       .then((File image) async {
                     //print("Capture Done");
                     setState(() {
@@ -191,7 +182,10 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     final paths = await getExternalStorageDirectory();
                     image.copy(paths.path +
                         '/' +
-                        DateTime.now().millisecondsSinceEpoch.toString() +
+                        DateTime
+                            .now()
+                            .millisecondsSinceEpoch
+                            .toString() +
                         '.png');
                     Navigator.pop(context, image);
                   }).catchError((onError) {
@@ -216,10 +210,10 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                       widget.image != null
                           ? Image.file(
                         widget.image,
-                              height: height.toDouble(),
-                              width: width.toDouble(),
-                              fit: BoxFit.cover,
-                            )
+                        height: height.toDouble(),
+                        width: width.toDouble(),
+                        fit: BoxFit.cover,
+                      )
                           : Container(),
                       Container(
                         child: GestureDetector(
@@ -238,59 +232,62 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             child: Signat()),
                       ),
                       Stack(
-                        children: multiwidget.asMap().entries.map((f) {
+                        children: multiwidget
+                            .asMap()
+                            .entries
+                            .map((f) {
                           return type[f.key] == 1
                               ? EmojiView(
-                                  left: offsets[f.key].dx,
-                                  top: offsets[f.key].dy,
-                                  ontap: () {
-                                    scaf.currentState
-                                        .showBottomSheet((context) {
-                                      return Sliders(
-                                        size: f.key,
-                                        sizevalue: fontsize[f.key].toDouble(),
-                                      );
-                                    });
-                                  },
-                                  onpanupdate: (details) {
-                                    setState(() {
-                                      offsets[f.key] = Offset(
-                                          offsets[f.key].dx + details.delta.dx,
-                                          offsets[f.key].dy + details.delta.dy);
-                                    });
-                                  },
-                                  value: f.value.toString(),
-                                  fontsize: fontsize[f.key].toDouble(),
-                                  align: TextAlign.center,
-                                )
+                            left: offsets[f.key].dx,
+                            top: offsets[f.key].dy,
+                            ontap: () {
+                              scaf.currentState
+                                  .showBottomSheet((context) {
+                                return Sliders(
+                                  size: f.key,
+                                  sizevalue: fontsize[f.key].toDouble(),
+                                );
+                              });
+                            },
+                            onpanupdate: (details) {
+                              setState(() {
+                                offsets[f.key] = Offset(
+                                    offsets[f.key].dx + details.delta.dx,
+                                    offsets[f.key].dy + details.delta.dy);
+                              });
+                            },
+                            value: f.value.toString(),
+                            fontsize: fontsize[f.key].toDouble(),
+                            align: TextAlign.center,
+                          )
                               : type[f.key] == 2
-                                  ? TextView(
-                                      left: offsets[f.key].dx,
-                                      top: offsets[f.key].dy,
-                                      ontap: () {
-                                        scaf.currentState
-                                            .showBottomSheet((context) {
-                                          return Sliders(
-                                            size: f.key,
-                                            sizevalue:
-                                                fontsize[f.key].toDouble(),
-                                          );
-                                        });
-                                      },
-                                      onpanupdate: (details) {
-                                        setState(() {
-                                          offsets[f.key] = Offset(
-                                              offsets[f.key].dx +
-                                                  details.delta.dx,
-                                              offsets[f.key].dy +
-                                                  details.delta.dy);
-                                        });
-                                      },
-                                      value: f.value.toString(),
-                                      fontsize: fontsize[f.key].toDouble(),
-                                      align: TextAlign.center,
-                                    )
-                                  : new Container();
+                              ? TextView(
+                            left: offsets[f.key].dx,
+                            top: offsets[f.key].dy,
+                            ontap: () {
+                              scaf.currentState
+                                  .showBottomSheet((context) {
+                                return Sliders(
+                                  size: f.key,
+                                  sizevalue:
+                                  fontsize[f.key].toDouble(),
+                                );
+                              });
+                            },
+                            onpanupdate: (details) {
+                              setState(() {
+                                offsets[f.key] = Offset(
+                                    offsets[f.key].dx +
+                                        details.delta.dx,
+                                    offsets[f.key].dy +
+                                        details.delta.dy);
+                              });
+                            },
+                            value: f.value.toString(),
+                            fontsize: fontsize[f.key].toDouble(),
+                            align: TextAlign.center,
+                          )
+                              : new Container();
                         }).toList(),
                       )
                     ],
@@ -301,209 +298,112 @@ class _ImageEditorProState extends State<ImageEditorPro> {
         bottomNavigationBar: openbottomsheet
             ? new Container()
             : Container(
-                decoration: BoxDecoration(
-                    color: widget.bottomBarColor,
-                    boxShadow: [BoxShadow(blurRadius: 10.9)]),
-                height: 70,
-                child: new ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    BottomBarContainer(
-                      colors: widget.bottomBarColor,
-                      icons: FontAwesomeIcons.brush,
-                      ontap: () {
-                        // raise the [showDialog] widget
-                        showDialog(
-                            context: context,
-                            child: AlertDialog(
-                              title: const Text('Pick a color!'),
-                              content: SingleChildScrollView(
-                                child: ColorPicker(
-                                  pickerColor: pickerColor,
-                                  onColorChanged: changeColor,
-                                  showLabel: true,
-                                  pickerAreaHeightPercent: 0.8,
-                                ),
-                              ),
-                              actions: <Widget>[
-                                FlatButton(
-                                  child: const Text('Got it'),
-                                  onPressed: () {
-                                    setState(() => currentColor = pickerColor);
-                                    Navigator.of(context).pop();
-                                  },
-                                ),
-                              ],
-                            ));
-                      },
-                      title: 'Brush',
-                    ),
-                    BottomBarContainer(
-                      icons: Icons.text_fields,
-                      ontap: () async {
-                        final value = await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => TextEditor()));
-                        if (value.toString().isEmpty) {
-                          print("true");
-                        } else {
-                          type.add(2);
-                          fontsize.add(20);
-                          offsets.add(Offset.zero);
-                          multiwidget.add(value);
-                          howmuchwidgetis++;
-                        }
-                      },
-                      title: 'Text',
-                    ),
-                    BottomBarContainer(
-                      icons: FontAwesomeIcons.eraser,
-                      ontap: () {
-                        _controller.clear();
-                        type.clear();
-                        fontsize.clear();
-                        offsets.clear();
-                        multiwidget.clear();
-                        howmuchwidgetis = 0;
-                      },
-                      title: 'Eraser',
-                    ),
-                    BottomBarContainer(
-                      icons: Icons.photo,
-                      ontap: () {
-                        showModalBottomSheet(
-                            context: context,
-                            builder: (context) {
-                              return ColorPiskersSlider();
-                            });
-                      },
-                      title: 'Filter',
-                    ),
-                    BottomBarContainer(
-                      icons: FontAwesomeIcons.smile,
-                      ontap: () {
-                        Future getemojis = showModalBottomSheet(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Emojies();
-                            });
-                        getemojis.then((value) {
-                          if (value != null) {
-                            type.add(1);
-                            fontsize.add(20);
-                            offsets.add(Offset.zero);
-                            multiwidget.add(value);
-                            howmuchwidgetis++;
-                          }
-                        });
-                      },
-                      title: 'Emoji',
-                    ),
-                  ],
-                ),
-              ));
-  }
-
-  void bottomsheets() {
-    openbottomsheet = true;
-    setState(() {});
-    Future<void> future = showModalBottomSheet<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return new Container(
-          decoration: BoxDecoration(color: Colors.white, boxShadow: [
-            BoxShadow(blurRadius: 10.9, color: Colors.grey[400])
-          ]),
-          height: 170,
-          child: new Column(
+          decoration: BoxDecoration(
+              color: widget.bottomBarColor,
+              boxShadow: [BoxShadow(blurRadius: 10.9)]),
+          height: 70,
+          child: new ListView(
+            scrollDirection: Axis.horizontal,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: new Text("Select Image Options"),
-              ),
-              Divider(
-                height: 1,
-              ),
-              new Container(
-                padding: EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      child: InkWell(
-                        onTap: () {},
-                        child: Container(
-                          child: Column(
-                            children: <Widget>[
-                              IconButton(
-                                  icon: Icon(Icons.photo_library),
-                                  onPressed: () async {
-                                    var image = await ImagePicker.pickImage(
-                                        source: ImageSource.gallery);
-                                    var decodedImage =
-                                        await decodeImageFromList(
-                                            image.readAsBytesSync());
-
-                                    setState(() {
-                                      height = decodedImage.height;
-                                      width = decodedImage.width;
-                                      widget.image = image;
-                                    });
-                                    setState(() => _controller.clear());
-                                    Navigator.pop(context);
-                                  }),
-                              SizedBox(width: 10),
-                              Text("Open Gallery")
-                            ],
+              BottomBarContainer(
+                colors: widget.bottomBarColor,
+                icons: FontAwesomeIcons.brush,
+                ontap: () {
+                  // raise the [showDialog] widget
+                  showDialog(
+                      context: context,
+                      child: AlertDialog(
+                        title: const Text('Pick a color!'),
+                        content: SingleChildScrollView(
+                          child: ColorPicker(
+                            pickerColor: pickerColor,
+                            onColorChanged: changeColor,
+                            showLabel: true,
+                            pickerAreaHeightPercent: 0.8,
                           ),
                         ),
-                      ),
-                    ),
-                    SizedBox(width: 24),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        child: Column(
-                          children: <Widget>[
-                            IconButton(
-                                icon: Icon(Icons.camera_alt),
-                                onPressed: () async {
-                                  var image = await ImagePicker.pickImage(
-                                      source: ImageSource.camera);
-                                  var decodedImage = await decodeImageFromList(
-                                      image.readAsBytesSync());
-
-                                  setState(() {
-                                    height = decodedImage.height;
-                                    width = decodedImage.width;
-                                    widget.image = image;
-                                  });
-                                  setState(() => _controller.clear());
-                                  Navigator.pop(context);
-                                }),
-                            SizedBox(width: 10),
-                            Text("Open Camera")
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )
+                        actions: <Widget>[
+                          FlatButton(
+                            child: const Text('Got it'),
+                            onPressed: () {
+                              setState(() => currentColor = pickerColor);
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      ));
+                },
+                title: 'Brush',
+              ),
+              BottomBarContainer(
+                icons: Icons.text_fields,
+                ontap: () async {
+                  final value = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => TextEditor()));
+                  if (value
+                      .toString()
+                      .isEmpty) {
+                    print("true");
+                  } else {
+                    type.add(2);
+                    fontsize.add(20);
+                    offsets.add(Offset.zero);
+                    multiwidget.add(value);
+                    howmuchwidgetis++;
+                  }
+                },
+                title: 'Text',
+              ),
+              BottomBarContainer(
+                icons: FontAwesomeIcons.eraser,
+                ontap: () {
+                  _controller.clear();
+                  type.clear();
+                  fontsize.clear();
+                  offsets.clear();
+                  multiwidget.clear();
+                  howmuchwidgetis = 0;
+                },
+                title: 'Eraser',
+              ),
+              BottomBarContainer(
+                icons: Icons.photo,
+                ontap: () {
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return ColorPiskersSlider();
+                      });
+                },
+                title: 'Filter',
+              ),
+              BottomBarContainer(
+                icons: FontAwesomeIcons.smile,
+                ontap: () {
+                  Future getemojis = showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Emojies();
+                      });
+                  getemojis.then((value) {
+                    if (value != null) {
+                      type.add(1);
+                      fontsize.add(20);
+                      offsets.add(Offset.zero);
+                      multiwidget.add(value);
+                      howmuchwidgetis++;
+                    }
+                  });
+                },
+                title: 'Emoji',
+              ),
             ],
           ),
-        );
-      },
-    );
-    future.then((void value) => _closeModal(value));
+        ));
   }
 
-  void _closeModal(void value) {
-    openbottomsheet = false;
-    setState(() {});
-  }
 }
 
 class Signat extends StatefulWidget {
