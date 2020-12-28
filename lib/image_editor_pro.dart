@@ -251,7 +251,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             onPanEnd: (DragEndDetails details) {
                               _points.add(null);
                             },
-                            child: Signat()),
+                            child: Signat(false)),
                       ),
                       Stack(
                         children: multiwidget.asMap().entries.map((f) {
@@ -467,21 +467,25 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 
 class Signat extends StatefulWidget {
   SignatureController _basicControlers= _controllers[index];
-
-  Signat();
+  bool newController = false;
+  Signat(this.newController);
   @override
   _SignatState createState() => _SignatState();
 }
 
 class _SignatState extends State<Signat> {
-  @override
-  void initState() {
-    super.initState();
-    //widget._basicControlers = _controllers[index];
-    print("signat init"+_controllers[index].penColor.toString());
-    widget._basicControlers.addListener(()=>print('hi'));
-  }
 
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    if(widget.newController == false) {
+      print("signat init" + _controllers[index].penColor.toString());
+      widget._basicControlers.addListener(() => print('hi'));
+      widget.newController=true;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     print("signat build"+_controllers[index].penColor.toString());
