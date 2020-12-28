@@ -7,12 +7,7 @@ class TransformDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ValueNotifier<Matrix4> notifier = ValueNotifier(Matrix4.identity());
-    return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(
-        title: Text('Transform Demo'),
-      ),
-      body: MatrixGestureDetector(
+    return  MatrixGestureDetector(
         onMatrixUpdate: (m, tm, sm, rm) {
           notifier.value = m;
         },
@@ -39,7 +34,6 @@ class TransformDemo extends StatelessWidget {
             );
           },
         ),
-      ),
-    );
+      );
   }
 }
