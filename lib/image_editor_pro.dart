@@ -407,7 +407,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     BottomBarContainer(
                       icons: FontAwesomeIcons.eraser,
                       ontap: () {
-                        _controller.clear();
+                        _controllers.last.clear();
                         type.clear();
                         fontsize.clear();
                         offsets.clear();
