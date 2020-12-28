@@ -24,7 +24,7 @@ class TransformDemo extends StatelessWidget {
                       transform: notifier.value,
                       child: FittedBox(
                         fit: BoxFit.contain,
-                        child: child,
+                        child: Text("hello"),
                       ),
                     ),
                   ),
