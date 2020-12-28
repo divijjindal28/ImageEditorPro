@@ -21,6 +21,7 @@ TextEditingController heightcontroler = TextEditingController();
 TextEditingController widthcontroler = TextEditingController();
 var width = 300;
 var height = 300;
+int index=0;
 
 List<SignatureController> _controllers = [];
 SignatureController _controller =
@@ -351,6 +352,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                   onPressed: () {
                                     setState(() {
                                       currentColor = pickerColor;
+                                      index=index+1;
                                       SignatureController _recentController =
                                           SignatureController(
                                               penStrokeWidth: thickness,
