@@ -57,7 +57,8 @@ class _TextEditorState extends State<TextEditor> {
         padding: EdgeInsets.all(10),
         child: new FlatButton(
             onPressed: () async{
-              final image = await Navigator.push(
+              print("imageOfEra"+widget.image.path.toString());
+              final returnedImage = await Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => TransformDemo(text:name.text,image: widget.image,)));
