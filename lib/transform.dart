@@ -24,16 +24,15 @@ class TransformDemo extends StatelessWidget {
               child: Stack(
                 children: <Widget>[
 
-                  Positioned.fill(
-                    child: Container(
+                  Container(
                       transform: notifier.value,
                       color: Colors.red,
                       child: FittedBox(
                         fit: BoxFit.contain,
-                        child: Text("hello",style: TextStyle(fontSize: 20),),
+                        child: Text("hello",style: TextStyle(fontSize: 10),),
                       ),
                     ),
-                  ),
+
 
                 ],
               ),
