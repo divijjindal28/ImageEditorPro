@@ -30,7 +30,7 @@ class TransformDemo extends StatelessWidget {
                       color: Colors.red,
                       child: FittedBox(
                         fit: BoxFit.contain,
-                        child: Text("hello"),
+                        child: Text("hello",style: TextStyle(fontSize: 20),),
                       ),
                     ),
                   ),
