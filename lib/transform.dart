@@ -21,21 +21,19 @@ class TransformDemo extends StatelessWidget {
             print("animating ");
             return Transform(
               transform: notifier.value,
-              child: Stack(
-                children: <Widget>[
-
-                  Container(
+              child:
+                  Positioned.fill(
+                    child: Container(
                       transform: notifier.value,
                       color: Colors.red,
                       child: FittedBox(
                         fit: BoxFit.contain,
-                        child: Text("hello",style: TextStyle(fontSize: 30),),
+                        child: Text("hello",),
                       ),
                     ),
+                  ),
 
 
-                ],
-              ),
             );
           },
         ),
