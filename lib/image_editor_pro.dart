@@ -467,7 +467,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 
 class Signat extends StatefulWidget {
   SignatureController _basicControlers= _controllers[index];
-  bool newController = false;
+  bool newController = true;
   Signat(this.newController);
   @override
   _SignatState createState() => _SignatState();
