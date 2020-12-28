@@ -61,7 +61,7 @@ class _TextEditorState extends State<TextEditor> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => TransformDemo(text:name.text,image: widget.image,)));
-              Navigator.pop(context, name.text);
+              //Navigator.pop(context, name.text);
             },
             color: Colors.black,
             padding: EdgeInsets.all(15),

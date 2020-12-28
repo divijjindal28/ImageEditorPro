@@ -22,7 +22,11 @@ class TransformDemo extends StatelessWidget {
             image,
             fit: BoxFit.cover,
           )
-              : Container(),
+              : Container(
+            height: 200,
+            width: 200,
+            color: Colors.blue,
+          ),
           MatrixGestureDetector(
             onMatrixUpdate: (m, tm, sm, rm) {
 
