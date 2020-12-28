@@ -478,6 +478,7 @@ class _SignatState extends State<Signat> {
   void initState() {
     super.initState();
     widget._basicControlers = _controllers[index];
+    print("hello"+_controllers[index].penColor.toString());
     widget._basicControlers.addListener(()=>print('hi'));
   }
 
