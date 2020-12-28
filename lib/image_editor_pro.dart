@@ -395,7 +395,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                       ontap: () async {
                         File _imageFile2;
                         _imageFile2 = null;
-                        screenshotController
+                        await screenshotController
                             .capture(
                         delay: Duration(milliseconds: 500), pixelRatio: 1.5)
                             .then((File image) async {
