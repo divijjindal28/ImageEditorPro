@@ -496,7 +496,7 @@ class _SignatState extends State<Signat> {
             controller: widget._basicControlers,
             height: height.toDouble(),
             width: width.toDouble(),
-            backgroundColor: Colors.transparent),
+            backgroundColor: Colors.red),
       ],
     );
   }
