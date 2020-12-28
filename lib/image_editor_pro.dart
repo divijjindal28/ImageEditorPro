@@ -237,22 +237,40 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               fit: BoxFit.cover,
                             )
                           : Container(),
-                      Container(
-                        child: GestureDetector(
-                            onPanUpdate: (DragUpdateDetails details) {
-                              setState(() {
-                                RenderBox object = context.findRenderObject();
-                                Offset _localPosition = object
-                                    .globalToLocal(details.globalPosition);
-                                _points = new List.from(_points)
-                                  ..add(_localPosition);
-                              });
-                            },
-                            onPanEnd: (DragEndDetails details) {
-                              _points.add(null);
-                            },
-                            child: Signat(false)),
-                      ),
+                      ..._controllers.map((element){
+                        return Container(
+                          child: GestureDetector(
+                              onPanUpdate: (DragUpdateDetails details) {
+                                setState(() {
+                                  RenderBox object = context.findRenderObject();
+                                  Offset _localPosition = object
+                                      .globalToLocal(details.globalPosition);
+                                  _points = new List.from(_points)
+                                    ..add(_localPosition);
+                                });
+                              },
+                              onPanEnd: (DragEndDetails details) {
+                                _points.add(null);
+                              },
+                              child: Signat(element)),
+                        );
+                      }).toList(),
+                      // Container(
+                      //   child: GestureDetector(
+                      //       onPanUpdate: (DragUpdateDetails details) {
+                      //         setState(() {
+                      //           RenderBox object = context.findRenderObject();
+                      //           Offset _localPosition = object
+                      //               .globalToLocal(details.globalPosition);
+                      //           _points = new List.from(_points)
+                      //             ..add(_localPosition);
+                      //         });
+                      //       },
+                      //       onPanEnd: (DragEndDetails details) {
+                      //         _points.add(null);
+                      //       },
+                      //       child: Signat(false)),
+                      // ),
                       Stack(
                         children: multiwidget.asMap().entries.map((f) {
                           return type[f.key] == 1
@@ -466,9 +484,9 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 // }
 
 class Signat extends StatefulWidget {
-  SignatureController _basicControlers= _controllers[index];
+  SignatureController _basicControlers;
   bool newController = true;
-  Signat(this.newController);
+  Signat(this._basicControlers);
   @override
   _SignatState createState() => _SignatState();
 }
