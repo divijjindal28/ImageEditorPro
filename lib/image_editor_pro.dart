@@ -482,7 +482,7 @@ class _SignatState extends State<Signat> {
     super.didChangeDependencies();
     if(widget.newController == false) {
       print("signat init" + _controllers[index].penColor.toString());
-      widget._basicControlers.addListener(() => print('hi'));
+
       widget.newController=true;
     }
   }
@@ -490,7 +490,7 @@ class _SignatState extends State<Signat> {
   Widget build(BuildContext context) {
     if(widget.newController == false){
       setState(() {
-
+        widget._basicControlers.addListener(() => print('hi'));
       });
     }
     print("signat build"+_controllers[index].penColor.toString());
