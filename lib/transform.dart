@@ -22,6 +22,7 @@ class TransformDemo extends StatelessWidget {
                   Positioned.fill(
                     child: Container(
                       transform: notifier.value,
+                      color: Colors.red,
                       child: FittedBox(
                         fit: BoxFit.contain,
                         child: Text("hello"),
