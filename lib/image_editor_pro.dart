@@ -250,7 +250,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             onPanEnd: (DragEndDetails details) {
                               _points.add(null);
                             },
-                            child: Signat(_controllers.last)),
+                            child: Signat()),
                       ),
                       Stack(
                         children: multiwidget.asMap().entries.map((f) {
@@ -433,39 +433,40 @@ class _ImageEditorProState extends State<ImageEditorPro> {
   }
 }
 
-class SignatList extends StatefulWidget {
-
-  @override
-  _SignatListState createState() => _SignatListState();
-}
-
-class _SignatListState extends State<SignatList> {
-  @override
-  void initState() {
-    super.initState();
-
-
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return //SIGNATURE CANVAS
-      //SIGNATURE CANVAS
-      SingleChildScrollView(
-        child: ListView.builder(
-          itemCount:  _controllers.length ,
-          itemBuilder: (_,index){
-            return Signat(_controllers[index]);
-          },
-
-        ),
-      );
-  }
-}
+// class SignatList extends StatefulWidget {
+//
+//   @override
+//   _SignatListState createState() => _SignatListState();
+// }
+//
+// class _SignatListState extends State<SignatList> {
+//   @override
+//   void initState() {
+//     super.initState();
+//
+//
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return //SIGNATURE CANVAS
+//       //SIGNATURE CANVAS
+//       SingleChildScrollView(
+//         child: ListView.builder(
+//           itemCount:  _controllers.length ,
+//           itemBuilder: (_,index){
+//             return Signat(_controllers[index]);
+//           },
+//
+//         ),
+//       );
+//   }
+// }
 
 class Signat extends StatefulWidget {
   SignatureController _basicControlers;
-  Signat(this._basicControlers);
+
+  Signat();
   @override
   _SignatState createState() => _SignatState();
 }
@@ -474,7 +475,7 @@ class _SignatState extends State<Signat> {
   @override
   void initState() {
     super.initState();
-
+    widget._basicControlers = _controllers[index];
     widget._basicControlers.addListener(()=>print('hi'));
   }
 
