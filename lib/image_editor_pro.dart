@@ -301,7 +301,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               : type[f.key] == 2
                                   ? TransformDemo(
                                     child: TextView(
-
+                                        left: offsets[f.key].dx,
+                                        top: offsets[f.key].dy,
 
 
                                         value: f.value.toString(),
