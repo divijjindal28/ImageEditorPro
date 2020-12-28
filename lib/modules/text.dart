@@ -6,7 +6,7 @@ import 'package:image_editor_pro/transform.dart';
 
 class TextEditor extends StatefulWidget {
   File image;
-  TextEditor(image);
+  TextEditor(this.image);
   @override
   _TextEditorState createState() => _TextEditorState();
 }
