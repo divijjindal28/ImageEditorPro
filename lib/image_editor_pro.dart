@@ -302,10 +302,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 )
                               : type[f.key] == 2
                                   ?
-                              Container(
-                                  height: 200,
-                                  width: 200,
-                                  child: TransformDemo(child: Text(f.value.toString(),style: TextStyle(fontSize: 20),)))
+                              TransformDemo(child: Text(f.value.toString(),style: TextStyle(fontSize: 20),))
                                   //   TextView(
                                   //       left: offsets[f.key].dx,
                                   //       top: offsets[f.key].dy,
