@@ -21,17 +21,17 @@ class TransformDemo extends StatelessWidget {
         color: Colors.blue,
         child: Stack(
           children: [
-            image != null
-                ? Image.file(
-              image,
-
-              fit: BoxFit.cover,
-            )
-                : Container(
-              height: 200,
-              width: 200,
-              color: Colors.blue,
-            ),
+            // image != null
+            //     ? Image.file(
+            //   image,
+            //
+            //   fit: BoxFit.cover,
+            // )
+            //     : Container(
+            //   height: 200,
+            //   width: 200,
+            //   color: Colors.blue,
+            // ),
             MatrixGestureDetector(
               onMatrixUpdate: (m, tm, sm, rm) {
 
