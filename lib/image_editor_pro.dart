@@ -301,8 +301,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 
                                 )
                               : type[f.key] == 2
-                                  ? TransformDemo(
-                                    child:
+                                  ?
                               Text(f.value.toString(),style: TextStyle(fontSize: 20),)
                                   //   TextView(
                                   //       left: offsets[f.key].dx,
@@ -330,7 +329,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                   //       fontsize: fontsize[f.key].toDouble(),
                                   //       align: TextAlign.center,
                                   //     ),
-                                  )
+
                                   : new Container();
                         }).toList(),
                       )
