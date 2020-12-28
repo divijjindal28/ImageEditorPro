@@ -302,34 +302,33 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 )
                               : type[f.key] == 2
                                   ?
-                              TransformDemo(child: Text(f.value.toString(),style: TextStyle(fontSize: 20),))
-                                  //   TextView(
-                                  //       left: offsets[f.key].dx,
-                                  //       top: offsets[f.key].dy,
-                                  //       ontap: () {
-                                  //         scaf.currentState
-                                  //             .showBottomSheet((context) {
-                                  //           return Sliders(
-                                  //             size: f.key,
-                                  //             sizevalue:
-                                  //                 fontsize[f.key].toDouble(),
-                                  //           );
-                                  //         });
-                                  //       },
-                                  //       onpanupdate: (details) {
-                                  //         setState(() {
-                                  //           offsets[f.key] = Offset(
-                                  //               offsets[f.key].dx +
-                                  //                   details.delta.dx,
-                                  //               offsets[f.key].dy +
-                                  //                   details.delta.dy);
-                                  //         });
-                                  //       },
-                                  //       value: f.value.toString(),
-                                  //       fontsize: fontsize[f.key].toDouble(),
-                                  //       align: TextAlign.center,
-                                  //     ),
-
+                              //TransformDemo(child: Text(f.value.toString(),style: TextStyle(fontSize: 20),))
+                                    TextView(
+                                        left: offsets[f.key].dx,
+                                        top: offsets[f.key].dy,
+                                        ontap: () {
+                                          scaf.currentState
+                                              .showBottomSheet((context) {
+                                            return Sliders(
+                                              size: f.key,
+                                              sizevalue:
+                                                  fontsize[f.key].toDouble(),
+                                            );
+                                          });
+                                        },
+                                        onpanupdate: (details) {
+                                          setState(() {
+                                            offsets[f.key] = Offset(
+                                                offsets[f.key].dx +
+                                                    details.delta.dx,
+                                                offsets[f.key].dy +
+                                                    details.delta.dy);
+                                          });
+                                        },
+                                        value: f.value.toString(),
+                                        fontsize: fontsize[f.key].toDouble(),
+                                        align: TextAlign.center,
+                                      )
                                   : null;
                         }).toList(),
                       )
@@ -394,10 +393,20 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     BottomBarContainer(
                       icons: Icons.text_fields,
                       ontap: () async {
+                        File _imageFile2;
+                        _imageFile2 = null;
+                        screenshotController
+                            .capture(
+                        delay: Duration(milliseconds: 500), pixelRatio: 1.5)
+                            .then((File image) async {
+                        //print("Capture Done");
+                        setState(() {
+                        _imageFile2 = image;
+                        });});
                         final value = await Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => TextEditor()));
+                                builder: (context) => TextEditor(_imageFile2)));
                         if (value.toString().isEmpty) {
                           print("true");
                         } else {

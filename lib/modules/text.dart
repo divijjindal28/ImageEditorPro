@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_editor_pro/transform.dart';
 
 class TextEditor extends StatefulWidget {
+  File image;
+  TextEditor(image);
   @override
   _TextEditorState createState() => _TextEditorState();
 }
@@ -51,7 +56,11 @@ class _TextEditorState extends State<TextEditor> {
         color: Colors.white,
         padding: EdgeInsets.all(10),
         child: new FlatButton(
-            onPressed: () {
+            onPressed: () async{
+              final image = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => TransformDemo(text:name.text,image: widget.image,)));
               Navigator.pop(context, name.text);
             },
             color: Colors.black,
