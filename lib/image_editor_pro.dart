@@ -488,6 +488,11 @@ class _SignatState extends State<Signat> {
   }
   @override
   Widget build(BuildContext context) {
+    if(widget.newController == false){
+      setState(() {
+
+      });
+    }
     print("signat build"+_controllers[index].penColor.toString());
 
     return //SIGNATURE CANVAS
