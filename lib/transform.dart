@@ -9,7 +9,7 @@ class TransformDemo extends StatelessWidget {
     final ValueNotifier<Matrix4> notifier = ValueNotifier(Matrix4.identity());
     return  MatrixGestureDetector(
         onMatrixUpdate: (m, tm, sm, rm) {
-          print("updated");
+          print("updated "+ m.toString() + "   "+ tm.toString()+ "   "+ sm.toString()+ "   "+ rm.toString());
           notifier.value = m;
         },
         child: AnimatedBuilder(
