@@ -466,7 +466,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 // }
 
 class Signat extends StatefulWidget {
-  SignatureController _basicControlers;
+  SignatureController _basicControlers= _controllers[index];
 
   Signat();
   @override
@@ -477,7 +477,7 @@ class _SignatState extends State<Signat> {
   @override
   void initState() {
     super.initState();
-    widget._basicControlers = _controllers[index];
+    //widget._basicControlers = _controllers[index];
     print("hello"+_controllers[index].penColor.toString());
     widget._basicControlers.addListener(()=>print('hi'));
   }
