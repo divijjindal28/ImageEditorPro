@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'transform.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -298,32 +299,16 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                   align: TextAlign.center,
                                 )
                               : type[f.key] == 2
-                                  ? TextView(
-                                      left: offsets[f.key].dx,
-                                      top: offsets[f.key].dy,
-                                      ontap: () {
-                                        scaf.currentState
-                                            .showBottomSheet((context) {
-                                          return Sliders(
-                                            size: f.key,
-                                            sizevalue:
-                                                fontsize[f.key].toDouble(),
-                                          );
-                                        });
-                                      },
-                                      onpanupdate: (details) {
-                                        setState(() {
-                                          offsets[f.key] = Offset(
-                                              offsets[f.key].dx +
-                                                  details.delta.dx,
-                                              offsets[f.key].dy +
-                                                  details.delta.dy);
-                                        });
-                                      },
-                                      value: f.value.toString(),
-                                      fontsize: fontsize[f.key].toDouble(),
-                                      align: TextAlign.center,
-                                    )
+                                  ? TransformDemo(
+                                    child: TextView(
+
+
+
+                                        value: f.value.toString(),
+                                        fontsize: 20,
+                                        align: TextAlign.center,
+                                      ),
+                                  )
                                   : new Container();
                         }).toList(),
                       )
