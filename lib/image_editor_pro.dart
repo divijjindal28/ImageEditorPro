@@ -476,21 +476,14 @@ class Signat extends StatefulWidget {
 class _SignatState extends State<Signat> {
 
 
-  @override
-  void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    super.didChangeDependencies();
-    if(widget.newController == false) {
-      print("signat init" + _controllers[index].penColor.toString());
 
-      widget.newController=true;
-    }
-  }
   @override
   Widget build(BuildContext context) {
     if(widget.newController == false){
       setState(() {
+        print("signat controller" + _controllers[index].penColor.toString());
         widget._basicControlers.addListener(() => print('hi'));
+        widget.newController=true;
       });
     }
     print("signat build"+_controllers[index].penColor.toString());
