@@ -15,51 +15,57 @@ class TransformDemo extends StatelessWidget {
       appBar: AppBar(
         title: Text("Apply Text"),
       ),
-      body: Stack(
-        children: [
-          image != null
-              ? Image.file(
-            image,
-            fit: BoxFit.cover,
-          )
-              : Container(
-            height: 200,
-            width: 200,
-            color: Colors.blue,
-          ),
-          MatrixGestureDetector(
-            onMatrixUpdate: (m, tm, sm, rm) {
+      body: Container(
+        height: 200,
+        width: 200,
+        color: Colors.blue,
+        child: Stack(
+          children: [
+            image != null
+                ? Image.file(
+              image,
 
-              notifier.value = m;
-            },
-            shouldRotate: true,
-            shouldScale: true,
-            shouldTranslate: true,
-            child: AnimatedBuilder(
-              animation: notifier,
-              builder: (ctx, child) {
-                print("animating ");
-                return Transform(
-                  transform: notifier.value,
-                  child:
-                  Positioned.fill(
-                    child: Container(
-                      transform: notifier.value,
-                      color: Colors.red,
-                      child: FittedBox(
-                        fit: BoxFit.contain,
-                        child: Text("hello",),
+              fit: BoxFit.cover,
+            )
+                : Container(
+              height: 200,
+              width: 200,
+              color: Colors.blue,
+            ),
+            MatrixGestureDetector(
+              onMatrixUpdate: (m, tm, sm, rm) {
+
+                notifier.value = m;
+              },
+              shouldRotate: true,
+              shouldScale: true,
+              shouldTranslate: true,
+              child: AnimatedBuilder(
+                animation: notifier,
+                builder: (ctx, child) {
+                  print("animating ");
+                  return Transform(
+                    transform: notifier.value,
+                    child:
+                    Positioned.fill(
+                      child: Container(
+                        transform: notifier.value,
+                        color: Colors.red,
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text("hello",),
+                        ),
                       ),
                     ),
-                  ),
 
 
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
 
+        ),
       ),
     );
   }
