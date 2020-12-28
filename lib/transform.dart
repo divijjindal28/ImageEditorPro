@@ -19,11 +19,11 @@ class TransformDemo extends StatelessWidget {
         height: 200,
         width: 200,
         color: Colors.blue,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: FileImage(image)
-          )
-        ),
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(
+        //     image: FileImage(image)
+        //   )
+        // ),
         child: MatrixGestureDetector(
           onMatrixUpdate: (m, tm, sm, rm) {
 
