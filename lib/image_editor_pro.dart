@@ -478,12 +478,14 @@ class _SignatState extends State<Signat> {
   void initState() {
     super.initState();
     //widget._basicControlers = _controllers[index];
-    print("hello"+_controllers[index].penColor.toString());
+    print("signat init"+_controllers[index].penColor.toString());
     widget._basicControlers.addListener(()=>print('hi'));
   }
 
   @override
   Widget build(BuildContext context) {
+    print("signat build"+_controllers[index].penColor.toString());
+
     return //SIGNATURE CANVAS
         //SIGNATURE CANVAS
         ListView(
