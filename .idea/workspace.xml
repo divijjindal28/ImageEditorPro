@@ -63,13 +63,6 @@
       <option name="presentableId" value="Default" />
       <updated>1585211439094</updated>
     </task>
-    <task id="LOCAL-00025" summary="run">
-      <created>1608805803320</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1608805803320</updated>
-    </task>
     <task id="LOCAL-00026" summary="run">
       <created>1608806169730</created>
       <option name="number" value="00026" />
@@ -406,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609212981832</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="run">
+      <created>1609213312263</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1609213312264</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,10 +441,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="run" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2" timestamp="1609213001547">
+    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2" timestamp="1609213322731">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609213001547" />
+    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609213322731" />
     <state x="0" y="25" key="Vcs.Push.Dialog.v2/0.25.1920.970@0.25.1920.970" timestamp="1609153543286" />
     <state x="0" y="50" key="Vcs.Push.Dialog.v2/0.25.1920.971@0.25.1920.971" timestamp="1609141175868" />
     <state x="560" y="247" key="Vcs.Push.Dialog.v2/0.25.1920.973@0.25.1920.973" timestamp="1608806383321" />

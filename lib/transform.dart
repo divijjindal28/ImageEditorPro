@@ -22,12 +22,12 @@ class TransformDemo extends StatelessWidget {
             animation: notifier,
             builder: (ctx, child) {
               print("animating ");
-              return Transform(
-                transform: notifier.value,
+              return Positioned.fill(
                 child:
                 Stack(
                   children: [
-                    Positioned.fill(
+                    Transform(
+                      transform: notifier.value,
                       child: Container(
                         transform: notifier.value,
                         color: Colors.red,
