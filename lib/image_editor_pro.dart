@@ -371,7 +371,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                           print("true");
                         } else {
                           type.add(2);
-                          fontsize.add(70);
+                          fontsize.add(200);
                           offsets.add(Offset.zero);
                           multiwidget.add(value);
                           howmuchwidgetis++;
