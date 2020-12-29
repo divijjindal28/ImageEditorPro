@@ -403,6 +403,9 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                           offsets.add(Offset.zero);
                           multiwidget.add(value);
                           howmuchwidgetis++;
+                          setState(() {
+
+                          });
                         }
                       },
                       title: 'Text',
