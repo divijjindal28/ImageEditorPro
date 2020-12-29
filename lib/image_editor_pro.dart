@@ -238,24 +238,28 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               fit: BoxFit.cover,
                             )
                           : Container(),
-                      ..._controllers.map((element){
-                        return Container(
-                          child: GestureDetector(
-                              onPanUpdate: (DragUpdateDetails details) {
-                                setState(() {
-                                  RenderBox object = context.findRenderObject();
-                                  Offset _localPosition = object
-                                      .globalToLocal(details.globalPosition);
-                                  _points = new List.from(_points)
-                                    ..add(_localPosition);
-                                });
-                              },
-                              onPanEnd: (DragEndDetails details) {
-                                _points.add(null);
-                              },
-                              child: Signat(element)),
-                        );
-                      }).toList(),
+                      TransformDemo(),
+                      // ..._controllers.map((element){
+                      //   return Container(
+                      //     child: GestureDetector(
+                      //         onPanUpdate: (DragUpdateDetails details) {
+                      //           setState(() {
+                      //             RenderBox object = context.findRenderObject();
+                      //             Offset _localPosition = object
+                      //                 .globalToLocal(details.globalPosition);
+                      //             _points = new List.from(_points)
+                      //               ..add(_localPosition);
+                      //           });
+                      //         },
+                      //         onPanEnd: (DragEndDetails details) {
+                      //           _points.add(null);
+                      //         },
+                      //         child: Signat(element)),
+                      //   );
+                      // }).toList(),
+
+
+
                       // Container(
                       //   child: GestureDetector(
                       //       onPanUpdate: (DragUpdateDetails details) {
@@ -272,8 +276,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                       //       },
                       //       child: Signat(false)),
                       // ),
-                      Stack(
-                         children: <Widget>[TransformDemo()]
+                      //Stack(
+                         //children: <Widget>[]
                          //multiwidget.asMap().entries.map((f) {
                         //   return type[f.key] == 1
                         //       ? EmojiView(
@@ -332,7 +336,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                     //   )
                         //           : null;
                         // }).toList(),
-                      )
+                      //)
                     ],
                   )),
             ),
