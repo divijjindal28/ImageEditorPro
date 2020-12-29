@@ -1,6 +1,6 @@
 
 import 'dart:async';
-import 'dart:html';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_editor_pro/transform.dart';
@@ -93,7 +93,7 @@ class _imageEditorPro2State extends State<imageEditorPro2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('ji'),),
+      appBar: AppBar(title: Text('j2'),),
       body: Container(
         width: 200,
         height: 200,
