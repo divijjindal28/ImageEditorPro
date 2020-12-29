@@ -428,8 +428,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     ),
                     BottomBarContainer(
                       icons: FontAwesomeIcons.smile,
-                      ontap: () {
-                        Future getemojis = showModalBottomSheet(
+                      ontap: () async{
+                        Future getemojis = await showModalBottomSheet(
                             context: context,
                             builder: (BuildContext context) {
                               return Emojies();
@@ -441,6 +441,9 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             offsets.add(Offset.zero);
                             multiwidget.add(value);
                             howmuchwidgetis++;
+                            setState(() {
+
+                            });
                           }
                         });
                       },
