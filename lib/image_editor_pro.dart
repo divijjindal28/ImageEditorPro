@@ -226,19 +226,20 @@ class _ImageEditorProState extends State<ImageEditorPro> {
               color: Colors.white,
               width: width.toDouble(),
               height: height.toDouble(),
-              child: RepaintBoundary(
-                  key: globalKey,
-                  child: Stack(
-                    children: <Widget>[
-                      widget.image != null
-                          ? Image.file(
-                              widget.image,
-                              height: height.toDouble(),
-                              width: width.toDouble(),
-                              fit: BoxFit.cover,
-                            )
-                          : Container(),
-                      TransformDemo(),
+              child: TransformDemo()
+              // RepaintBoundary(
+              //     key: globalKey,
+              //     child: Stack(
+              //       children: <Widget>[
+              //         widget.image != null
+              //             ? Image.file(
+              //                 widget.image,
+              //                 height: height.toDouble(),
+              //                 width: width.toDouble(),
+              //                 fit: BoxFit.cover,
+              //               )
+              //             : Container(),
+              //         TransformDemo(),
                       // ..._controllers.map((element){
                       //   return Container(
                       //     child: GestureDetector(
@@ -337,8 +338,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         //           : null;
                         // }).toList(),
                       //)
-                    ],
-                  )),
+                    //],)),
             ),
           ),
         ),
