@@ -24,9 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0bd560f-bde8-418c-adca-1e108e889ed8" name="Default Changelist" comment="run">
-      <change beforePath="$PROJECT_DIR$/lib/image_editor_pro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/image_editor_pro.dart" afterDir="false" />
-    </list>
+    <list default="true" id="e0bd560f-bde8-418c-adca-1e108e889ed8" name="Default Changelist" comment="run" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,13 +60,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585211439094</updated>
-    </task>
-    <task id="LOCAL-00055" summary="run">
-      <created>1609146347213</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1609146347213</updated>
     </task>
     <task id="LOCAL-00056" summary="run">
       <created>1609146578044</created>
@@ -406,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609228084524</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="run">
+      <created>1609228592876</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1609228592876</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,10 +439,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="run" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2" timestamp="1609228104187">
+    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2" timestamp="1609228614963">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609228104187" />
+    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609228614963" />
     <state x="0" y="25" key="Vcs.Push.Dialog.v2/0.25.1920.970@0.25.1920.970" timestamp="1609153543286" />
     <state x="0" y="50" key="Vcs.Push.Dialog.v2/0.25.1920.971@0.25.1920.971" timestamp="1609141175868" />
     <state x="560" y="247" key="Vcs.Push.Dialog.v2/0.25.1920.973@0.25.1920.973" timestamp="1608806383321" />
