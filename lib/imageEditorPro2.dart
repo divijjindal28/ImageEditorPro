@@ -91,6 +91,27 @@ class _imageEditorPro2State extends State<imageEditorPro2> {
   }
 
   @override
+  void dispose() {
+    timeprediction.cancel();
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    timers();
+    _controller.clear();
+    type.clear();
+    fontsize.clear();
+    offsets.clear();
+    multiwidget.clear();
+    howmuchwidgetis = 0;
+    _controllers.add(_controller);
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('j2'),),
