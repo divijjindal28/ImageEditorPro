@@ -222,7 +222,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
           width: 200,
           height: 200,
           child: TransformDemo(),
-        )
+        ),
         // Center(
         //   child: Screenshot(
         //     controller: screenshotController,
