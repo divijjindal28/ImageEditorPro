@@ -111,7 +111,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 
   @override
   void initState() {
-    timers();
+    //timers();
     _controller.clear();
     type.clear();
     fontsize.clear();
@@ -218,102 +218,82 @@ class _ImageEditorProState extends State<ImageEditorPro> {
           ],
           backgroundColor: widget.appBarColor,
         ),
-        body: Container(
-          width: 200,
-          height: 200,
-          child: TransformDemo(),
-        ),
-        // Center(
-        //   child: Screenshot(
-        //     controller: screenshotController,
-        //     child: Container(
-        //       margin: EdgeInsets.all(20),
-        //       color: Colors.white,
-        //       width: width.toDouble(),
-        //       height: height.toDouble(),
-        //       child:
-              // RepaintBoundary(
-              //     key: globalKey,
-              //     child: Stack(
-              //       children: <Widget>[
-              //         widget.image != null
-              //             ? Image.file(
-              //                 widget.image,
-              //                 height: height.toDouble(),
-              //                 width: width.toDouble(),
-              //                 fit: BoxFit.cover,
-              //               )
-              //             : Container(),
-              //         TransformDemo(),
-                      // ..._controllers.map((element){
-                      //   return Container(
-                      //     child: GestureDetector(
-                      //         onPanUpdate: (DragUpdateDetails details) {
-                      //           setState(() {
-                      //             RenderBox object = context.findRenderObject();
-                      //             Offset _localPosition = object
-                      //                 .globalToLocal(details.globalPosition);
-                      //             _points = new List.from(_points)
-                      //               ..add(_localPosition);
-                      //           });
-                      //         },
-                      //         onPanEnd: (DragEndDetails details) {
-                      //           _points.add(null);
-                      //         },
-                      //         child: Signat(element)),
-                      //   );
-                      // }).toList(),
+        body:
+
+        Center(
+          child: Screenshot(
+            controller: screenshotController,
+            child: Container(
+              margin: EdgeInsets.all(20),
+              color: Colors.white,
+              width: width.toDouble(),
+              height: height.toDouble(),
+              child:
+              RepaintBoundary(
+                  key: globalKey,
+                  child: Stack(
+                    children: <Widget>[
+                      widget.image != null
+                          ? Image.file(
+                              widget.image,
+                              height: height.toDouble(),
+                              width: width.toDouble(),
+                              fit: BoxFit.cover,
+                            )
+                          : Container(),
+                      ..._controllers.map((element){
+                        return Container(
+                          child: GestureDetector(
+                              onPanUpdate: (DragUpdateDetails details) {
+                                setState(() {
+                                  RenderBox object = context.findRenderObject();
+                                  Offset _localPosition = object
+                                      .globalToLocal(details.globalPosition);
+                                  _points = new List.from(_points)
+                                    ..add(_localPosition);
+                                });
+                              },
+                              onPanEnd: (DragEndDetails details) {
+                                _points.add(null);
+                              },
+                              child: Signat(element)),
+                        );
+                      }).toList(),
 
 
+                      Stack(
+                         children:
+                         multiwidget.asMap().entries.map((f) {
+                          return type[f.key] == 1
+                              ? EmojiView(
 
-                      // Container(
-                      //   child: GestureDetector(
-                      //       onPanUpdate: (DragUpdateDetails details) {
-                      //         setState(() {
-                      //           RenderBox object = context.findRenderObject();
-                      //           Offset _localPosition = object
-                      //               .globalToLocal(details.globalPosition);
-                      //           _points = new List.from(_points)
-                      //             ..add(_localPosition);
-                      //         });
-                      //       },
-                      //       onPanEnd: (DragEndDetails details) {
-                      //         _points.add(null);
-                      //       },
-                      //       child: Signat(false)),
-                      // ),
-                      //Stack(
-                         //children: <Widget>[]
-                         //multiwidget.asMap().entries.map((f) {
-                        //   return type[f.key] == 1
-                        //       ? EmojiView(
-                        //
-                        //           left: offsets[f.key].dx,
-                        //           top: offsets[f.key].dy,
-                        //           ontap: () {
-                        //             scaf.currentState
-                        //                 .showBottomSheet((context) {
-                        //               return Sliders(
-                        //                 size: f.key,
-                        //                 sizevalue: fontsize[f.key].toDouble(),
-                        //               );
-                        //             });
-                        //           },
-                        //           onpanupdate: (details) {
-                        //             setState(() {
-                        //               offsets[f.key] = Offset(
-                        //                   offsets[f.key].dx + details.delta.dx,
-                        //                   offsets[f.key].dy + details.delta.dy);
-                        //             });
-                        //           },
-                        //           value: f.value.toString(),
-                        //           fontsize: fontsize[f.key].toDouble(),
-                        //           align: TextAlign.center,
-                        //
-                        //         )
-                        //       : type[f.key] == 2
-                        //           ?
-                        //
+                                  left: offsets[f.key].dx,
+                                  top: offsets[f.key].dy,
+                                  ontap: () {
+                                    scaf.currentState
+                                        .showBottomSheet((context) {
+                                      return Sliders(
+                                        size: f.key,
+                                        sizevalue: fontsize[f.key].toDouble(),
+                                      );
+                                    });
+                                  },
+                                  onpanupdate: (details) {
+                                    setState(() {
+                                      offsets[f.key] = Offset(
+                                          offsets[f.key].dx + details.delta.dx,
+                                          offsets[f.key].dy + details.delta.dy);
+                                    });
+                                  },
+                                  value: f.value.toString(),
+                                  fontsize: fontsize[f.key].toDouble(),
+                                  align: TextAlign.center,
+
+                                )
+                              : type[f.key] == 2
+                                  ?
+                              TransformDemo()
+
                                     // TextView(
                                     //     left: offsets[f.key].dx,
                                     //     top: offsets[f.key].dy,
@@ -340,11 +320,11 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                     //     fontsize: fontsize[f.key].toDouble(),
                                     //     align: TextAlign.center,
                                     //   )
-                        //           : null;
-                        // }).toList(),
-                      //)
-                    //],)),
-            //),),),
+                                  : null;
+                        }).toList(),
+                      )
+                    ],)),
+            ),),),
         bottomNavigationBar: openbottomsheet
             ? new Container()
             : Container(
