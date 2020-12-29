@@ -428,8 +428,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     ),
                     BottomBarContainer(
                       icons: FontAwesomeIcons.smile,
-                      ontap: () async{
-                        Future getemojis = await showModalBottomSheet(
+                      ontap: () {
+                        Future getemojis =  showModalBottomSheet(
                             context: context,
                             builder: (BuildContext context) {
                               return Emojies();
