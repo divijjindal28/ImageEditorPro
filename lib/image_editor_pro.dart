@@ -330,8 +330,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                     //     fontsize: fontsize[f.key].toDouble(),
                                     //     align: TextAlign.center,
                                     //   )
-                                  : null;
-                        }).toList(),
+                        //           : null;
+                        // }).toList(),
                       )
                     ],
                   )),
