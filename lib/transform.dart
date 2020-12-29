@@ -7,10 +7,11 @@ import 'package:matrix_gesture_detector/matrix_gesture_detector.dart';
 class TransformDemo extends StatelessWidget {
 
   Widget child2;
-  TransformDemo(this.child2);
+  ValueNotifier<Matrix4> notifier = ValueNotifier(Matrix4.identity());
+
+  TransformDemo(this.child2,this.notifier);
   @override
   Widget build(BuildContext context) {
-    final ValueNotifier<Matrix4> notifier = ValueNotifier(Matrix4.identity());
     return MatrixGestureDetector(
 
           onMatrixUpdate: (m, tm, sm, rm) {

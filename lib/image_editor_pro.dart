@@ -24,6 +24,7 @@ var width = 300;
 var height = 300;
 int index=0;
 
+List< ValueNotifier<Matrix4>> notifiers = [];
 List<SignatureController> _controllers = [];
 SignatureController _controller =
     SignatureController(penStrokeWidth: thickness, penColor: Colors.green);
@@ -271,11 +272,11 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                     value: f.value.toString(),
 
                               fontsize: fontsize[f.key].toDouble(),
-                                  ),
+                                  ),notifiers[f.key]
                           )
                               : type[f.key] == 2
                                   ?
-                              TransformDemo(Text(f.value.toString()))
+                              TransformDemo(Text(f.value.toString()),notifiers[f.key])
 
                                     // TextView(
                                     //     left: offsets[f.key].dx,
@@ -376,6 +377,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                           fontsize.add(20);
                           offsets.add(Offset.zero);
                           multiwidget.add(value);
+                          notifiers.add(ValueNotifier(Matrix4.identity()));
                           howmuchwidgetis++;
                           setState(() {
 
