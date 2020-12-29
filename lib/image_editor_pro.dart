@@ -270,7 +270,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             EmojiView(
                                     value: f.value.toString(),
 
-
+                              fontsize: fontsize[f.key].toDouble(),
                                   ),
                           )
                               : type[f.key] == 2
@@ -419,7 +419,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         getemojis.then((value) {
                           if (value != null) {
                             type.add(1);
-                            fontsize.add(20);
+                            fontsize.add(500);
                             offsets.add(Offset.zero);
                             multiwidget.add(value);
                             howmuchwidgetis++;
