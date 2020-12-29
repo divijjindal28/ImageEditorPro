@@ -268,7 +268,27 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               ?
                           EmojiView(
 
+                                  left: offsets[f.key].dx,
+                                  top: offsets[f.key].dy,
+                                  ontap: () {
+                                    scaf.currentState
+                                        .showBottomSheet((context) {
+                                      return Sliders(
+                                        size: f.key,
+                                        sizevalue: fontsize[f.key].toDouble(),
+                                      );
+                                    });
+                                  },
+                                  onpanupdate: (details) {
+                                    setState(() {
+                                      offsets[f.key] = Offset(
+                                          offsets[f.key].dx + details.delta.dx,
+                                          offsets[f.key].dy + details.delta.dy);
+                                    });
+                                  },
                                   value: f.value.toString(),
+                                  fontsize: fontsize[f.key].toDouble(),
+                                  align: TextAlign.center,
 
                                 )
                               : type[f.key] == 2
@@ -408,8 +428,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     ),
                     BottomBarContainer(
                       icons: FontAwesomeIcons.smile,
-                      ontap: () async{
-                        Future getemojis = await showModalBottomSheet(
+                      ontap: () {
+                        Future getemojis = showModalBottomSheet(
                             context: context,
                             builder: (BuildContext context) {
                               return Emojies();
@@ -417,7 +437,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         getemojis.then((value) {
                           if (value != null) {
                             type.add(1);
-                            fontsize.add(100);
+                            fontsize.add(20);
                             offsets.add(Offset.zero);
                             multiwidget.add(value);
                             howmuchwidgetis++;
