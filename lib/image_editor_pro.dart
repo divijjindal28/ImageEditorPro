@@ -424,6 +424,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                             fontsize.add(500);
                             offsets.add(Offset.zero);
                             multiwidget.add(value);
+                            notifiers.add(ValueNotifier(Matrix4.identity()));
                             howmuchwidgetis++;
                             setState(() {
 
