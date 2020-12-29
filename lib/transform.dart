@@ -5,26 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:matrix_gesture_detector/matrix_gesture_detector.dart';
 
 class TransformDemo extends StatelessWidget {
-  String text;
-  File image;
-  TransformDemo({this.text,this.image});
+
+  TransformDemo();
   @override
   Widget build(BuildContext context) {
     final ValueNotifier<Matrix4> notifier = ValueNotifier(Matrix4.identity());
-    return  Scaffold(
-      appBar: AppBar(
-        title: Text("Apply Text"),
-      ),
-      body: Container(
-        height: 200,
-        width: 200,
-        color: Colors.blue,
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: FileImage(image)
-        //   )
-        // ),
-        child: MatrixGestureDetector(
+    return MatrixGestureDetector(
           onMatrixUpdate: (m, tm, sm, rm) {
 
             notifier.value = m;
@@ -54,8 +40,6 @@ class TransformDemo extends StatelessWidget {
               );
             },
           ),
-        ),
-      ),
-    );
+        );
   }
 }
