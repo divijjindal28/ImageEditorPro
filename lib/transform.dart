@@ -11,6 +11,7 @@ class TransformDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     final ValueNotifier<Matrix4> notifier = ValueNotifier(Matrix4.identity());
     return MatrixGestureDetector(
+
           onMatrixUpdate: (m, tm, sm, rm) {
 
             notifier.value = m;
@@ -29,7 +30,7 @@ class TransformDemo extends StatelessWidget {
                     Positioned.fill(
                       child: Container(
                         transform: notifier.value,
-                        color: Colors.red,
+                        color: Colors.blue,
                         child: FittedBox(
                           fit: BoxFit.contain,
                           child: Text("hello",),
