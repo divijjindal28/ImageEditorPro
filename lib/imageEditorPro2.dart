@@ -114,7 +114,7 @@ class _imageEditorPro2State extends State<imageEditorPro2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('j2'),),
+      appBar: AppBar(title: Text('3'),),
       body: Container(
         width: 200,
         height: 200,
