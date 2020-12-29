@@ -99,7 +99,7 @@ class _imageEditorPro2State extends State<imageEditorPro2> {
 
   @override
   void initState() {
-    timers();
+    //timers();
     _controller.clear();
     type.clear();
     fontsize.clear();
