@@ -218,15 +218,20 @@ class _ImageEditorProState extends State<ImageEditorPro> {
           ],
           backgroundColor: widget.appBarColor,
         ),
-        body: Center(
-          child: Screenshot(
-            controller: screenshotController,
-            child: Container(
-              margin: EdgeInsets.all(20),
-              color: Colors.white,
-              width: width.toDouble(),
-              height: height.toDouble(),
-              child: TransformDemo()
+        body: Container(
+          width: 200,
+          height: 200,
+          child: TransformDemo(),
+        )
+        // Center(
+        //   child: Screenshot(
+        //     controller: screenshotController,
+        //     child: Container(
+        //       margin: EdgeInsets.all(20),
+        //       color: Colors.white,
+        //       width: width.toDouble(),
+        //       height: height.toDouble(),
+        //       child:
               // RepaintBoundary(
               //     key: globalKey,
               //     child: Stack(
@@ -339,9 +344,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         // }).toList(),
                       //)
                     //],)),
-            ),
-          ),
-        ),
+            //),),),
         bottomNavigationBar: openbottomsheet
             ? new Container()
             : Container(
