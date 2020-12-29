@@ -381,16 +381,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     BottomBarContainer(
                       icons: Icons.text_fields,
                       ontap: () async {
-                        File _imageFile2;
-                        _imageFile2 = null;
-                        await screenshotController
-                            .capture(
-                        delay: Duration(milliseconds: 500), pixelRatio: 1.5)
-                            .then((File image) async {
-                        //print("Capture Done");
-                        setState(() {
-                        _imageFile2 = image;
-                        });});
+
                         final value = await Navigator.push(
                             context,
                             MaterialPageRoute(
