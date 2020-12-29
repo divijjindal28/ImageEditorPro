@@ -265,16 +265,12 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                          children:
                          multiwidget.asMap().entries.map((f) {
                           return type[f.key] == 1
-                              ? TransformDemo(
+                              ?
                           EmojiView(
 
-                                  left: offsets[f.key].dx,
-                                  top: offsets[f.key].dy,
                                   value: f.value.toString(),
-                                  fontsize: fontsize[f.key].toDouble(),
-                                  align: TextAlign.center,
 
-                                ))
+                                )
                               : type[f.key] == 2
                                   ?
                               TransformDemo(Text(f.value.toString()))
