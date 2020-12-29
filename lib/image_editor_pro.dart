@@ -292,7 +292,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 )
                               : type[f.key] == 2
                                   ?
-                              TransformDemo()
+                              TransformDemo(Text(f.value.toString()))
 
                                     // TextView(
                                     //     left: offsets[f.key].dx,

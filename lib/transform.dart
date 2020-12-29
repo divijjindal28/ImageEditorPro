@@ -6,7 +6,8 @@ import 'package:matrix_gesture_detector/matrix_gesture_detector.dart';
 
 class TransformDemo extends StatelessWidget {
 
-  TransformDemo();
+  Widget child;
+  TransformDemo(this.child);
   @override
   Widget build(BuildContext context) {
     final ValueNotifier<Matrix4> notifier = ValueNotifier(Matrix4.identity());
@@ -34,7 +35,7 @@ class TransformDemo extends StatelessWidget {
                         color: Colors.transparent,
                         child: FittedBox(
                           fit: BoxFit.contain,
-                          child: Text("hello",),
+                          child:child,
                         ),
                       ),
                     ),
