@@ -21,7 +21,6 @@ class TransformDemo extends StatelessWidget {
           child: AnimatedBuilder(
             animation: notifier,
             builder: (ctx, child) {
-              print("animating ");
               return Transform(
                 transform: notifier.value,
                 child:

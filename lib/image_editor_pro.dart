@@ -515,12 +515,10 @@ class _SignatState extends State<Signat> {
   Widget build(BuildContext context) {
     if(widget.newController == false){
       setState(() {
-        print("signat controller" + _controllers[index].penColor.toString());
         widget._basicControlers.addListener(() => print('hi'));
         widget.newController=true;
       });
     }
-    print("signat build"+_controllers[index].penColor.toString());
 
     return //SIGNATURE CANVAS
         //SIGNATURE CANVAS
