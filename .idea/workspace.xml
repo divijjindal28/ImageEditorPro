@@ -24,9 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0bd560f-bde8-418c-adca-1e108e889ed8" name="Default Changelist" comment="run">
-      <change beforePath="$PROJECT_DIR$/lib/image_editor_pro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/image_editor_pro.dart" afterDir="false" />
-    </list>
+    <list default="true" id="e0bd560f-bde8-418c-adca-1e108e889ed8" name="Default Changelist" comment="run" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,20 +60,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585211439094</updated>
-    </task>
-    <task id="LOCAL-00062" summary="run">
-      <created>1609149183471</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1609149183471</updated>
-    </task>
-    <task id="LOCAL-00063" summary="run">
-      <created>1609149368051</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1609149368051</updated>
     </task>
     <task id="LOCAL-00064" summary="run">
       <created>1609150644198</created>
@@ -406,7 +390,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609231538639</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="run">
+      <created>1609231909571</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1609231909571</updated>
+    </task>
+    <task id="LOCAL-00112" summary="run">
+      <created>1609232181594</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1609232181594</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,10 +439,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="run" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2" timestamp="1609231559103">
+    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2" timestamp="1609232198039">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609231559103" />
+    <state x="0" y="28" width="1920" height="970" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609232198039" />
     <state x="0" y="25" key="Vcs.Push.Dialog.v2/0.25.1920.970@0.25.1920.970" timestamp="1609153543286" />
     <state x="0" y="50" key="Vcs.Push.Dialog.v2/0.25.1920.971@0.25.1920.971" timestamp="1609141175868" />
     <state x="560" y="247" key="Vcs.Push.Dialog.v2/0.25.1920.973@0.25.1920.973" timestamp="1608806383321" />
