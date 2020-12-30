@@ -268,11 +268,15 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                           return type[f.key] == 1
                               ?
                           TransformDemo(
-                            EmojiView(
-                                    value: f.value.toString(),
+                            Stack(
+                              children: [
+                                EmojiView(
+                                        value: f.value.toString(),
 
-                              fontsize: fontsize[f.key].toDouble(),
-                                  ),notifiers[f.key]
+                                  fontsize: fontsize[f.key].toDouble(),
+                                      ),
+                              ],
+                            ),notifiers[f.key]
                           )
                               : type[f.key] == 2
                                   ?
